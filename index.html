@@ -1,0 +1,2723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shiloh Sneha Security Services</title>
+  <style>
+    :root {
+      --primary-navy: #1A3C5A;
+      --accent-gold: #2563eb;
+      --background-white: #F9FAFB;
+      --text-gray: #6B7280;
+      --shadow: 0 4px 12px rgba(26,60,90,0.06);
+      --radius: 8px;
+      --transition: 0.3s cubic-bezier(.4,0,.2,1);
+      --font-main: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      --top-bar-height: 34px;
+    }
+    /* Global reset */
+    *,*::before,*::after{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+
+    /* ===== Custom Scrollbar ===== */
+    /* WebKit browsers */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--background-white);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold);
+      border-radius: 6px;
+      border: 2px solid var(--background-white);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #1e40af; /* slightly darker accent on hover */
+    }
+
+    /* Firefox */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-gold) var(--background-white);
+    }
+    html,body{overflow-x:hidden;}
+
+    /* Remove gap/line between sections */
+    .what-we-do, .sneha-model {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .what-we-do { padding-bottom: 40px; }
+    .sneha-model { padding-top: 40px; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: var(--background-white);
+      color: var(--primary-navy);
+    }
+    .navbar {
+  position: sticky;
+  top: var(--top-bar-height);
+  width: 100%;
+  background: var(--background-white);
+  box-shadow: 0 10px 15px rgba(30,41,59,0.08);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 50;
+  transition: background 0.3s, box-shadow 0.3s;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 16px;
+}
+@media (min-width: 640px) {
+  .navbar-container { padding: 0 24px; }
+}
+@media (min-width: 1024px) {
+  .navbar-container { padding: 0 32px; }
+}
+@media (max-width: 700px) {
+  .navbar { height: 56px; }
+}
+.navbar-logo {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.45rem;
+  font-weight: bold;
+  color: #1A3C5A;
+  letter-spacing: 0.5px;
+  line-height: 1.05;
+}
+.navbar-logo span {
+  font-size: 1.1rem;
+  color: #2563eb;
+  font-weight: 600;
+  margin-top: -2px;
+}
+.navbar-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+.logo-text span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+.navbar-logo img, .logo-img {
+  height: 44px;
+  width: 44px;
+  margin-right: 8px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.navbar-menu {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.navbar-menu a {
+  color: #334155;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.06rem;
+  padding: 7px 18px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+.navbar-menu a:hover, .navbar-menu a:focus {
+  color: #2563eb;
+  background: #f1f5f9;
+}
+.navbar-menu a.active {
+  color: #1d4ed8;
+  background: #e0e7ff;
+  font-weight: 600;
+}
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 10px;
+}
+.navbar-toggle .bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  margin: 5px 0;
+  background: #334155;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.navbar-toggle:hover .bar, .navbar-toggle:focus .bar {
+  background: #2563eb;
+}
+@media (max-width: 900px) {
+  .navbar-menu {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--background-white);
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 8px 32px rgba(26,60,90,0.13);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    display: none;
+    z-index: 100;
+  }
+  .navbar-menu.open {
+    display: flex;
+  }
+  .navbar-menu a {
+    padding: 16px 24px;
+    font-size: 1.13rem;
+    border-radius: 0;
+    border-bottom: 1px solid #2563eb22;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+}
+
+    .navbar-logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--primary-navy);
+      letter-spacing: 1px;
+    }
+    .navbar-logo span {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+    .navbar-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-menu li a {
+      text-decoration: none;
+      color: var(--primary-navy);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: var(--radius);
+      transition: background var(--transition), color var(--transition);
+      position: relative;
+    }
+    .navbar-menu li a.active,
+    .navbar-menu li a:hover,
+    .navbar-menu li a:focus {
+      background: var(--accent-gold);
+      color: #fff;
+    }
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 16px;
+    }
+    .navbar-toggle .bar {
+      width: 28px;
+      height: 3px;
+      background: var(--primary-navy);
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+    @media (max-width: 900px) {
+      .navbar-container {
+        padding: 12px 12px;
+      }
+      .navbar-menu {
+        gap: 20px;
+      }
+    }
+    @media (max-width: 768px) {
+      .navbar-menu {
+        position: absolute;
+        top: 64px; /* below navbar */
+        left: 0;
+        right: 0;
+        background: var(--background-white);
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 20px 24px 24px 24px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+        display: none;
+        z-index: 200;
+      }
+      .navbar-menu.open {
+        display: flex;
+      }
+      .navbar-menu li {
+        width: 100%;
+        margin-bottom: 16px;
+      }
+      .navbar-menu li a {
+        width: 100%;
+        display: block;
+        font-size: 1.1rem;
+        padding: 14px 8px;
+        border-radius: var(--radius);
+      }
+      .navbar-toggle {
+        display: flex;
+      }
+    }
+    @media (max-width: 480px) {
+      .navbar-logo {
+        font-size: 1.1rem;
+      }
+      .navbar-container {
+        padding: 8px 6px;
+      }
+    }
+  </style>
+  <style>
+    .top-contact-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #1e3a8a;
+      color: #fff;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      z-index: 60;
+      height: var(--top-bar-height);
+      display: flex;
+      align-items: center;
+    }
+
+    /* Ensure the navbar stays visible just below the contact bar */
+    .navbar {
+      position: fixed;
+      top: var(--top-bar-height);
+      left: 0;
+      width: 100%;
+      z-index: 55;
+    }
+
+    /* Prevent content from sliding under the fixed bars */
+    body {
+      padding-top: calc(var(--top-bar-height) + 64px); /* contact bar + navbar height */
+    }
+    .top-contact-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+      flex-wrap: nowrap;
+      gap: 8px;
+    }
+    .top-contact-left a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-right: 8px;
+    }
+    .top-contact-left .divider {
+      margin: 0 8px;
+      color: #2563eb;
+      font-weight: 400;
+    }
+    .top-contact-right {
+      color: #fff ;
+      font-weight: 400;
+      font-size: 0.98rem;
+      letter-spacing: 0.01em;
+      margin-left: auto;
+    }
+    @media (max-width: 700px) {
+      .top-contact-container { flex-direction: row; align-items: center; gap: 8px; padding: 0 8px; }
+      .top-contact-right { font-size: 0.93rem; }
+    }
+    @media (max-width: 440px) {
+      .top-contact-right { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Contact Bar -->
+  <div class="top-contact-bar">
+    <div class="top-contact-container">
+      <div class="top-contact-left">
+        <a href="tel:+919876543210">+91&nbsp;9876543210</a>
+        <span class="divider">|</span>
+        <a href="mailto:info@shilohsneha.com">info@shilohsneha.com</a>
+      </div>
+      <div class="top-contact-right">Government of AP Partnership • 24/7 Support</div>
+    </div>
+  </div>
+
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="navbar-container">
+      <div class="navbar-logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVRmcxYW1AcQQBGU2djITWSkDfMMvyqFca2g&s" alt="Shiloh Sneha Logo" class="logo-img"><div class="logo-text">Shiloh Sneha <span>Security Services</span></div></div>
+      <button class="navbar-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#training">Training Programs</a></li>
+        <li><a href="#services">Security Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#stories">Success Stories</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Transforming Unemployed Youth into <span>Security Professionals</span></h1>
+      <p class="hero-sub">Government-backed training programs with 100% job placement <span class="plus">+</span> Professional security services for businesses</p>
+    </div>
+    <div class="hero-images">
+      <div class="hero-card">
+        <img src="https://vs4.in/wp-content/uploads/2025/02/Training-1024x668.jpg" alt="Training in progress" />
+      </div>
+      <div class="hero-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvWolOcLUd8RLQEDGy4FNW-7jLQSIx3W_GoA&s" alt="Security personnel at work" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Indicators -->
+<section class="trust-indicators">
+  <div class="trust-row">
+    <div class="trust-card">
+      <h3>1.8 Lakh</h3>
+      <h4>Youth Empowerment Target</h4>
+      <p>Committed to transforming lives across AP</p>
+    </div>
+    <div class="trust-card">
+      <h3>24/7</h3>
+      <h4>Professional Services</h4>
+      <p>Round-the-clock security solutions</p>
+    </div>
+    <div class="trust-card">
+      <h3>30 Years</h3>
+      <h4>Security Excellence</h4>
+      <p>Three decades of trusted service</p>
+    </div>
+    <div class="trust-card">
+      <h3>Gov. of AP</h3>
+      <h4>Partnership</h4>
+      <p>Official government backing and support</p>
+    </div>
+  </div>
+</section>
+
+<!-- What We Do -->
+<section class="what-we-do" id="whatwedo">
+  <div class="wwd-hero">
+    <h2>What We Do</h2>
+    <p>We bridge the gap between unemployed youth and businesses needing security services through comprehensive training and professional deployment.</p>
+  </div>
+  <div class="wwd-cards">
+    <!-- Youth Card -->
+    <div class="wwd-card youth">
+      <div class="wwd-header"><span class="wwd-icon">👥</span><h3>For Youth</h3></div>
+      <p class="wwd-desc">Transform your career with our comprehensive security training program. Get certified, skilled, and employed with our 100% job placement guarantee.</p>
+      <a href="#" class="wwd-toggle">Learn More &#9660;</a>
+      <ul class="wwd-more">
+        <li>Free government-backed training program</li>
+        <li>Industry-standard certification upon completion</li>
+        <li>100% job placement guarantee</li>
+        <li>Ongoing career development support</li>
+        <li>Skill enhancement workshops</li>
+        <li>Professional networking opportunities</li>
+      </ul>
+    </div>
+
+    <!-- Business Card -->
+    <div class="wwd-card business">
+      <div class="wwd-header"><span class="wwd-icon">🛡️</span><h3>For Businesses</h3></div>
+      <p class="wwd-desc">Get professionally trained security personnel who understand your business needs. Our 24/7 services ensure complete peace of mind for your operations.</p>
+      <a href="#" class="wwd-toggle">Learn More &#9660;</a>
+      <ul class="wwd-more">
+        <li>Professionally trained security personnel</li>
+        <li>24/7 security services and monitoring</li>
+        <li>Customized security solutions</li>
+        <li>Regular performance evaluations</li>
+        <li>Emergency response protocols</li>
+        <li>Comprehensive insurance coverage</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+// Collapsible What We Do cards
+document.querySelectorAll('.wwd-toggle').forEach(tgl => {
+  tgl.addEventListener('click', function(e) {
+    e.preventDefault();
+    const card = this.closest('.wwd-card');
+    card.classList.toggle('open');
+    this.innerHTML = card.classList.contains('open') ? 'Show Less &#9650;' : 'Learn More &#9660;';
+  });
+});
+</script>
+
+<!-- Sneha Model: 7-Step Process -->
+<section class="sneha-model" id="sneha-model">
+  <h2 class="model-title">The Sneha Model</h2>
+  <p class="model-subtitle">Our proven 7-step systematic approach to transforming lives</p>
+  <div class="model-steps">
+    <div class="model-item">
+      <div class="model-badge">1</div>
+      <h4>Youth Identification</h4>
+      <p class="model-desc">Targeted outreach to unemployed youth in rural and urban areas</p>
+    </div>
+    <div class="model-item">
+      <div class="model-badge">2</div>
+      <h4>HR Management</h4>
+      <p class="model-desc">Comprehensive assessment and profiling of candidates</p>
+    </div>
+    <div class="model-item">
+      <div class="model-badge">3</div>
+      <h4>Industry Training</h4>
+      <p class="model-desc">Professional security training following industry standards</p>
+    </div>
+    <div class="model-item">
+      <div class="model-badge">4</div>
+      <h4>Skill Development</h4>
+      <p class="model-desc">Personal and professional skill enhancement programs</p>
+    </div>
+    <div class="model-item">
+      <div class="model-badge">5</div>
+      <h4>Certification</h4>
+      <p class="model-desc">Government-recognized certifications and credentials</p>
+    </div>
+    <div class="model-item">
+      <div class="model-badge">6</div>
+      <h4>Job Placement</h4>
+      <p class="model-desc">100% guaranteed placement with our partner companies</p>
+    </div>
+    <div class="model-item">
+      <div class="model-badge">7</div>
+      <h4>Follow-up Support</h4>
+      <p class="model-desc">Ongoing career support and professional development</p>
+    </div>
+  </div>
+</section>
+
+<!-- Gentle Transition Bridge -->
+<section class="transition-bridge" id="results-bridge">
+  <div class="bridge-card">
+    <div class="bridge-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" stroke="none" fill="none"></circle>
+        <path d="M7 13l3 3 7-7" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+      </svg>
+    </div>
+    <h3 class="bridge-title">Wondering if this really works?</h3>
+    <p class="bridge-lead">See how we've transformed thousands of lives and secured hundreds of businesses across Andhra Pradesh. Our proven track record speaks for itself.</p>
+    <div class="bridge-stats">
+      <div class="bridge-stat"><span class="stat-icon">👥</span><span>5,000+ Lives Transformed</span></div>
+      <div class="bridge-stat"><span class="stat-icon">🛡️</span><span>500+ Businesses Secured</span></div>
+      <div class="bridge-stat"><span class="stat-icon">🏆</span><span>30 Years Excellence</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof -->
+<section class="social-proof" id="success-stories">
+  <h2 class="proof-title">Trusted by Thousands</h2>
+  <p class="proof-subtitle">Success stories and partnerships that prove our impact</p>
+  <div class="testimonial-row">
+    <div class="story-card">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Youth Success" />
+      <div class="story-content">
+        <strong class="story-name">Ravi Kumar</strong><span class="story-role">Security Supervisor, Tech Park</span>
+        <p class="story-quote">“From unemployment to leading a security team of 15 people. Shiloh Sneha changed my life completely.”</p><div class="story-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Youth Success" />
+      <div class="story-content">
+        <strong>Priya Sharma</strong>
+        <p class="story-quote">“Professional training and immediate placement. Now I’m securing multinational companies with confidence.”</p><div class="story-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Business Client" />
+      <div class="story-content">
+        <strong>ABC Corp</strong>
+        <p class="story-quote">“From village unemployment to managing security for 5-star hotels. Dreams do come true with right guidance.”</p><div class="story-stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="org-title">Trusted by Leading Organizations</h3>
+  <div class="org-logos">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Andhra_Pradesh_Logo.png" alt="AP Govt" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Partner" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="Partner" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Partner" />
+  </div>
+</section>
+
+<!-- Training Programs -->
+<section class="training-programs" id="training">
+  <div class="tp-wrap">
+    <h2 class="tp-heading">Training Programs</h2>
+    <p class="tp-sub">Transform your future with our comprehensive security training program. Get the skills, certification, and guaranteed job placement you need.</p>
+
+    <!-- Highlight Cards -->
+    <div class="tp-highlights">
+      <div class="tp-hcard"><span class="tp-hicon">⏱️</span><h4>6-Week Duration</h4><p>Intensive training program</p></div>
+      <div class="tp-hcard"><span class="tp-hicon">🎯</span><h4>100% Job Placement</h4><p>Guaranteed employment</p></div>
+      <div class="tp-hcard"><span class="tp-hicon">🔖</span><h4>Government Certified</h4><p>Recognized certification</p></div>
+      <div class="tp-hcard"><span class="tp-hicon">💸</span><h4>Free Training</h4><p>No fees required</p></div>
+    </div>
+
+    <!-- Eligibility Card -->
+    <div class="tp-card tp-eligibility">
+      <h3>Eligibility Requirements</h3>
+      <ul>
+        <li>Age: 18-35 years</li>
+        <li>Education: 10ᵗʰ grade minimum</li>
+        <li>Physical fitness requirements</li>
+        <li>Clear background verification</li>
+      </ul>
+    </div>
+
+    <!-- Accordions -->
+    <div class="tp-accordion">
+      <button class="tp-acc-toggle">Key Benefits &amp; Career Outcomes <span class="toggle-icon">▼</span></button>
+      <div class="tp-acc-content">
+        <ul class="tp-list">
+          <li>Stable career in growing security industry</li>
+          <li>Competitive salary packages starting from ₹15,000-25,000/month</li>
+          <li>Career advancement with performance-based promotions</li>
+          <li>Professional development & continuous skill enhancement</li>
+          <li>Health insurance and social security benefits</li>
+          <li>Government certification with national recognition</li>
+          <li>Networking opportunities with industry professionals</li>
+          <li>Post-placement mentorship and support programs</li>
+        </ul>
+      </div>
+
+      <button class="tp-acc-toggle">Infrastructure &amp; Facilities <span class="toggle-icon">▼</span></button>
+      <div class="tp-acc-content">
+        <div class="tp-inf-row">
+          <div class="inf-col">
+            <h4>Training Centers</h4>
+            <ul>
+              <li>10,000+ sq ft modern training facilities</li>
+              <li>Air-conditioned classrooms with latest AV equipment</li>
+              <li>Practical training grounds and simulation areas</li>
+              <li>Computer labs with security software training</li>
+            </ul>
+          </div>
+          <div class="inf-col">
+            <h4>Professional Equipment</h4>
+            <ul>
+              <li>Latest security systems and surveillance equipment</li>
+              <li>Communication devices and emergency response tools</li>
+              <li>Physical fitness training equipment & obstacle courses</li>
+              <li>Safety gear and protective equipment for hands-on training</li>
+            </ul>
+          </div>
+          <div class="inf-col">
+            <h4>Certification &amp; Support</h4>
+            <ul>
+              <li>Government of AP certified training modules</li>
+              <li>Industry-standard assessment & evaluation systems</li>
+              <li>Digital learning management system with progress tracking</li>
+              <li>24/7 student support and career counseling services</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <button class="tp-acc-toggle">Training Components <span class="toggle-icon">▼</span></button>
+      <div class="tp-acc-content">
+        <ul class="tp-list">
+          <li>Physical Security Protocols</li>
+          <li>Access Control Systems</li>
+          <li>Emergency Response Procedures</li>
+          <li>Customer Service Skills</li>
+          <li>Legal Aspects of Security</li>
+          <li>Technology Integration</li>
+          <li>Communication Skills</li>
+          <li>Report Writing</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA Card -->
+    <div class="tp-card tp-cta-card">
+      <h3>Ready to Start Your Security Career?</h3>
+      <div class="tp-steps">
+        <div class="tp-step"><span class="tp-step-badge">1</span><h4>Submit Application</h4><p>Complete our online application form</p></div>
+        <div class="tp-step"><span class="tp-step-badge">2</span><h4>Verification</h4><p>Background check and document verification</p></div>
+        <div class="tp-step"><span class="tp-step-badge">3</span><h4>Start Training</h4><p>Begin your 6-week training program</p></div>
+      </div>
+      <button class="tp-apply">Apply Now – Free Training</button>
+    </div>
+  </div>
+</section>
+
+<script>
+// TP Accordions
+ const tpToggles = document.querySelectorAll('.tp-acc-toggle');
+ tpToggles.forEach(btn=>{
+   btn.addEventListener('click',()=>{
+     // close others
+     tpToggles.forEach(other=>{
+       if(other!==btn){
+         other.classList.remove('open');
+         other.nextElementSibling.style.display='none';
+         other.querySelector('.toggle-icon').textContent='▼';
+       }
+     });
+     // toggle current
+     const content = btn.nextElementSibling;
+     const isOpen = btn.classList.toggle('open');
+     content.style.display = isOpen ? 'block' : 'none';
+     btn.querySelector('.toggle-icon').textContent = isOpen ? '▲' : '▼';
+   });
+ });
+</script>
+
+
+<!-- Security Services -->
+<section class="security-services" id="services">
+  <div class="ss-wrap">
+    <h2 class="ss-heading">Security Services</h2>
+    <p class="ss-sub">Professional security solutions tailored to your business needs. Our trained personnel provide 24/7 protection with government-backed reliability.</p>
+    <div class="ss-emergency"><span class="phone-icon">📞</span> 24/7 Emergency: +91 9876543210</div>
+
+    <!-- Service Cards -->
+    <div class="ss-cards">
+      <div class="ss-card">
+        <div class="ss-card-head"><span class="ss-card-icon">🛡️</span><h4>Armed Security Guards</h4></div>
+        <p class="ss-card-desc">Highly trained armed security personnel for high-risk environments and sensitive facilities.</p>
+        <a href="#" class="ss-toggle">Learn More <span class="toggle-icon">▼</span></a>
+        <ul class="ss-more">
+          <li>Licensed and certified armed guards</li>
+          <li>Specialized weapons training</li>
+          <li>High-security facility protection</li>
+          <li>Emergency response protocols</li>
+          <li>24/7 surveillance capabilities</li>
+          <li>Regular performance evaluations</li>
+        </ul>
+      </div>
+
+      <div class="ss-card">
+        <div class="ss-card-head"><span class="ss-card-icon">👮‍♂️</span><h4>Unarmed Security Guards</h4></div>
+        <p class="ss-card-desc">Professional unarmed security services for offices, retail, and residential properties.</p>
+        <a href="#" class="ss-toggle">Learn More <span class="toggle-icon">▼</span></a>
+        <ul class="ss-more">
+          <li>Customer-service focused approach</li>
+          <li>Access control management</li>
+          <li>Patrol and monitoring services</li>
+          <li>Incident reporting and documentation</li>
+          <li>Visitor management systems</li>
+          <li>Property protection coverage</li>
+        </ul>
+      </div>
+
+      <div class="ss-card">
+        <div class="ss-card-head"><span class="ss-card-icon">🚓</span><h4>Mobile Patrol Services</h4></div>
+        <p class="ss-card-desc">Regular mobile patrol services for multiple locations and large properties.</p>
+        <a href="#" class="ss-toggle">Learn More <span class="toggle-icon">▼</span></a>
+        <ul class="ss-more">
+          <li>Scheduled and random patrols</li>
+          <li>Multiple location coverage</li>
+          <li>GPS tracking and reporting</li>
+          <li>Emergency response capability</li>
+          <li>Property maintenance checks</li>
+          <li>Detailed patrol reports</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <h3 class="ss-process-title">Our Service Process</h3>
+    <p class="ss-process-sub">Our systematic 3-step approach ensures professional security deployment tailored to your specific needs</p>
+    <div class="ss-steps">
+      <div class="ss-step">
+        <span class="ss-step-badge">1</span>
+        <h4>Assess</h4>
+        <a href="#" class="ss-step-link">Security Assessment</a>
+        <p>We conduct a comprehensive evaluation of your premises, identify vulnerabilities, analyze risk factors, and understand your specific security requirements to design a customized solution.</p>
+      </div>
+      <div class="ss-step">
+        <span class="ss-step-badge">2</span>
+        <h4>Deploy</h4>
+        <a href="#" class="ss-step-link">Strategic Deployment</a>
+        <p>We deploy professionally trained security personnel, implement customized security protocols, integrate with existing systems, and establish clear communication channels.</p>
+      </div>
+      <div class="ss-step">
+        <span class="ss-step-badge">3</span>
+        <h4>Support</h4>
+        <a href="#" class="ss-step-link">Ongoing Support</a>
+        <p>We provide continuous monitoring and evaluation, regular performance reviews, 24/7 backup support, and adapt security measures based on evolving needs and feedback.</p>
+      </div>
+    </div>
+
+    <!-- Bottom Lists -->
+    <div class="ss-bottom">
+      <div class="ss-column">
+        <h4>Why Choose Us</h4>
+        <ul class="ss-list">
+          <li>30 years of security excellence</li>
+          <li>Government of AP partnership</li>
+          <li>24/7 professional services</li>
+          <li>Trained through certified programs</li>
+        </ul>
+      </div>
+      <div class="ss-column">
+        <h4>Coverage Areas</h4>
+        <ul class="ss-list">
+          <li>Vijayawada and surrounding areas</li>
+          <li>Guntur district coverage</li>
+          <li>Krishna district services</li>
+          <li>Expanding to other AP districts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Security card toggles
+ document.querySelectorAll('.ss-toggle').forEach(tgl=>{
+   tgl.addEventListener('click',e=>{
+     e.preventDefault();
+     const card = tgl.closest('.ss-card');
+     card.classList.toggle('open');
+     tgl.innerHTML = card.classList.contains('open') ? 'Show Less <span class="toggle-icon">&#9650;</span>' : 'Learn More <span class="toggle-icon">&#9660;</span>';
+   });
+ });
+</script>
+
+
+<!-- About Us Section -->
+<section class="about-us" id="about">
+  <div class="about-hero">
+    <h2 class="about-title">About Us</h2>
+    <p class="about-sub">30 Years of Security Excellence, Transforming Lives &amp; Protecting Businesses</p>
+    <div class="about-highlights">
+      <div class="about-highlight-card">
+        <span class="about-icon">🏆</span>
+        <strong>Expertise</strong>
+        <p>Decades of hands-on experience in security and training.</p>
+      </div>
+      <div class="about-highlight-card">
+        <span class="about-icon">🤝</span>
+        <strong>Government Partnership</strong>
+        <p>Officially partnered with the Government of Andhra Pradesh.</p>
+      </div>
+      <div class="about-highlight-card">
+        <span class="about-icon">🏢</span>
+        <strong>Infrastructure</strong>
+        <p>Modern training centers, surveillance labs, and on-site facilities.</p>
+      </div>
+      <div class="about-highlight-card">
+        <span class="about-icon">🌟</span>
+        <strong>Dual Mission</strong>
+        <p>Empowering youth and securing businesses with equal dedication.</p>
+      </div>
+    </div>
+    <div class="about-mission-card">
+      <h3>Our Mission</h3>
+      <p>To transform unemployed youth into skilled security professionals while providing businesses with reliable, professional security services. Through government partnership and industry expertise, we create sustainable employment opportunities and ensure the safety and security of our clients across Andhra Pradesh.</p>
+      <button class="about-cta">Learn Our Complete Story <span class="cta-icon">&#9660;</span></button>
+    </div>
+  </div>
+  <div class="about-collapsible-section">
+    <div class="about-collapse-card">
+      <button class="about-collapse-toggle">Company History <span class="toggle-icon">▼</span></button>
+      <div class="about-collapse-content">
+        <p>Founded in 1994, Shiloh Sneha Security Services has grown from a small local agency into a leading security and training provider, serving clients across Andhra Pradesh and beyond.</p>
+      </div>
+    </div>
+    <div class="about-collapse-card">
+      <button class="about-collapse-toggle">Infrastructure Details <span class="toggle-icon">▼</span></button>
+      <div class="about-collapse-content">
+        <ul>
+          <li>State-of-the-art training academies</li>
+          <li>24/7 monitored surveillance labs</li>
+          <li>Physical fitness & simulation grounds</li>
+          <li>On-site accommodation & canteen</li>
+        </ul>
+      </div>
+    </div>
+    <div class="about-collapse-card">
+      <button class="about-collapse-toggle">Leadership Profiles <span class="toggle-icon">▼</span></button>
+      <div class="about-collapse-content">
+        <div class="about-leader">
+          <strong>Ms. Sneha Reddy</strong> – Founder & CEO<br>
+          <span>Visionary leader with 30+ years of experience in security and youth empowerment.</span>
+        </div>
+        <div class="about-leader">
+          <strong>Mr. Ajay Kumar</strong> – Director of Training<br>
+          <span>Expert in security protocols and workforce development.</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-collapse-card">
+      <button class="about-collapse-toggle">Certifications & Partnerships <span class="toggle-icon">▼</span></button>
+      <div class="about-collapse-content">
+        <ul>
+          <li>Govt. of AP Registered Security Agency</li>
+          <li>ISO 9001:2015 Certified</li>
+          <li>Microsoft, IBM, Amazon, AP Police partnerships</li>
+        </ul>
+      </div>
+    </div>
+    <div class="about-collapse-card">
+      <button class="about-collapse-toggle">Success Metrics <span class="toggle-icon">▼</span></button>
+      <div class="about-collapse-content">
+        <ul>
+          <li>18,000+ youth trained and placed</li>
+          <li>200+ corporate & government clients</li>
+          <li>Zero major incidents in 10 years</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-detail" id="about-detail" style="display:none;">
+  <h3 class="about-section-title">Our Journey Through Time</h3>
+  <div class="about-grid journey-grid">
+    <div class="journey-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiGwxYvuXMUBrWN4HwnKlMngmpWcJFqLPSSg&s" alt="1994 - The Beginning" />
+      <h4>The Beginning (1994)</h4>
+      <p>Founded by visionary leader Mr. Rajesh Sharma, Shiloh Sneha began as a small security service provider in Vijayawada with just 5 security guards and a dream to make a difference.</p>
+      <p>Starting with local businesses and residential complexes, we quickly gained reputation for reliability and professionalism in the security industry.</p>
+    </div>
+    <div class="journey-card">
+      <img src="https://www.efrontlearning.com/blog/wp-content/webp-express/webp-images/uploads/2023/06/eFront_20230607_1200x314-1.png.webp" alt="2000-2010 Growth" />
+      <h4>Growth &amp; Recognition (2000-2010)</h4>
+      <p>Expanded operations across 15 districts in Andhra Pradesh. Established first formal training center and began government partnerships for youth employment programs.</p>
+      <p>Received state government recognition for outstanding contribution to youth employment and security services excellence.</p>
+    </div>
+    <div class="journey-card">
+      <img src="https://www.isrmag.com/wp-content/uploads/2022/12/Innovations-in-security-and-safety-systems.jpg" alt="2010-2020 Innovation" />
+      <h4>Innovation Era (2010-2020)</h4>
+      <p>Introduced technology-driven security solutions, advanced training methodologies, and established partnerships with major corporations across South India.</p>
+      <p>Achieved milestone of training and placing over 3,000 youth while serving 200+ corporate clients simultaneously.</p>
+    </div>
+    <div class="journey-card">
+      <img src="https://www.securityindustry.org/wp-content/uploads/2019/02/digital-transformation-887x488.jpg" alt="2020-Present Digital Transformation" />
+      <h4>Digital Transformation (2020-Present)</h4>
+      <p>Embraced digital technologies, online training modules, and AI-driven security solutions. Launched ambitious goal of training 1.8 lakh youth.</p>
+      <p>Today, we stand as Andhra Pradesh’s leading security training and services provider with 30 years of proven excellence.</p>
+    </div>
+  </div>
+
+  <h3 class="about-section-title">World-Class Infrastructure</h3>
+  <div class="about-grid infra-grid">
+    <div class="about-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReY-dhwNiHbC5v_C3TwH_S7WZb44RdGQb2dw&s" alt="Training Centers" style="width:100%;height:160px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;margin-bottom:12px;"><h4>Training Centers</h4><ul><li>15,000 sq ft main training facility</li><li>8 regional training centers</li><li>Simulation rooms for real scenarios</li><li>Modern classrooms with AV equipment</li><li>Physical fitness training areas</li><li>Library and study halls</li></ul></div>
+    <div class="about-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-q7s0rJXpWhMHcPNm3vBhmRcHsxPb6OLxIQ&s0" alt="Technology Infrastructure" style="width:100%;height:160px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;margin-bottom:12px;"><h4>Technology Infrastructure</h4><ul><li>Computer labs with 200+ systems</li><li>Advanced security systems training</li><li>CCTV and drone equipment</li><li>Communication devices training</li><li>Online learning platforms</li><li>Digital assessment tools</li></ul></div>
+    <div class="about-card"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtZPZlfsJ1CDPrcYPnJ0cyV16Jo13Kq5AGMg&s" alt="Support Facilities" style="width:100%;height:160px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;margin-bottom:12px;"><h4>Support Facilities</h4><ul><li>Residential accommodation for 500 trainees</li><li>Cafeteria and dining facilities</li><li>Medical center with qualified staff</li><li>Transportation fleet of 25 vehicles</li><li>Recreation and sports facilities</li><li>Counseling and career guidance centers</li></ul></div>
+  </div>
+
+  <h3 class="about-section-title">Leadership Team</h3>
+  <div class="about-grid leaders-grid">
+    <div class="leader-card"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sneha"><strong>Sneha Reddy</strong><span>Founder & CEO</span></div>
+    <div class="leader-card"><img src="https://randomuser.me/api/portraits/men/66.jpg" alt="Ajay"><strong>Ajay Kumar</strong><span>Training Director</span></div>
+    <div class="leader-card"><img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Vikram"><strong>Vikram Patel</strong><span>COO</span></div>
+  </div>
+
+  <h3 class="about-section-title">Certifications & Accreditations</h3>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon iso">🎖️</div>
+      <strong>ISO 9001:2015</strong>
+      <span>Quality Management Systems</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon psara">🛡️</div>
+      <strong>PSARA Licence</strong>
+      <span>Private Security Agency</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon nsdc">👥</div>
+      <strong>NSDC Certified</strong>
+      <span>National Skill Development</span>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon ap">✔️</div>
+      <strong>AP Govt. Approved</strong>
+      <span>Official Partnership</span>
+    </div>
+  </div>
+
+  <h3 class="about-section-title">Strategic Partnerships</h3>
+  <div class="partner-panel">
+    <div class="partner-column">
+      <h4>Government Partners</h4>
+      <div class="partner-card">
+        <div class="partner-icon blue">🏛️</div>
+        <div>
+          <strong>AP Police</strong>
+          <span>Law Enforcement Collaboration</span>
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon green">🎯</div>
+        <div>
+          <strong>Skill India Mission</strong>
+          <span>Certified Training Programs</span>
+        </div>
+      </div>
+    </div>
+    <div class="partner-column">
+      <h4>Industry Partners</h4>
+      <div class="partner-card">
+        <div class="partner-icon purple">💼</div>
+        <div>
+          <strong>Microsoft India</strong>
+          <span>Technology & Cloud</span>
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon purple">🔒</div>
+        <div>
+          <strong>IBM Security</strong>
+          <span>Security Solutions</span>
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon orange">☁️</div>
+        <div>
+          <strong>Amazon AWS</strong>
+          <span>Cloud Infrastructure</span>
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon blue">🏢</div>
+        <div>
+          <strong>Local MSMEs</strong>
+          <span>Regional Businesses</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="about-section-title">Success by Numbers</h3>
+  <div class="metrics-row">
+    <div class="metric-card"><strong>5,000+</strong><span>Jobs Created</span></div>
+    <div class="metric-card"><strong>500+</strong><span>Clients Served</span></div>
+    <div class="metric-card"><strong>99.2%</strong><span>Placement Rate</span></div>
+    <div class="metric-card"><strong>24/7</strong><span>Support</span></div>
+  </div>
+
+  <h3 class="about-section-title">Our Core Values</h3>
+  <div class="values-grid">
+    <div class="value-card blue"><strong>Excellence</strong><p>We maintain the highest standards in training, service delivery, and professional development.</p></div>
+    <div class="value-card green"><strong>Empowerment</strong><p>We believe in transforming lives through skill development and sustainable employment opportunities.</p></div>
+    <div class="value-card purple"><strong>Integrity</strong><p>We operate with transparency, honesty, and ethical practices in all our interactions.</p></div>
+    <div class="value-card orange"><strong>Innovation</strong><p>We continuously adapt our methods and technologies to serve our community better.</p></div>
+  </div>
+</section>
+
+<!-- Success Stories Section -->
+<section class="success-stories" id="stories">
+  <div class="ss-stories-hero">
+    <h2 class="ss-stories-title">Success Stories</h2>
+    <div class="ss-stories-filters">
+      <button class="ss-filter-btn active" data-filter="all">All Stories</button>
+      <button class="ss-filter-btn" data-filter="career">Career Transformations</button>
+      <button class="ss-filter-btn" data-filter="business">Business Security Solutions</button>
+    </div>
+  </div>
+  <div class="ss-stories-grid">
+    <!-- Story 1 -->
+    <div class="ss-story-card" data-type="career">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ravi Kumar" class="ss-story-photo" />
+      <strong class="ss-story-name">Ravi Kumar</strong>
+      <span class="ss-story-path">Security Supervisor → Corporate Manager</span>
+      <p class="ss-story-quote">"I was unemployed for 2 years after completing my degree. Shiloh Sneha's training program not only gave me a job but a career path. Today, I manage security for a Fortune 500 company."</p>
+      <div class="ss-story-meta"><span>Batch: 2019</span><span>Current Salary: ₹45,000/month</span></div>
+    </div>
+    <!-- Story 2 -->
+    <div class="ss-story-card" data-type="career">
+      <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Lakshmi Devi" class="ss-story-photo" />
+      <strong class="ss-story-name">Lakshmi Devi</strong>
+      <span class="ss-story-path">Homemaker → Security Team Leader</span>
+      <p class="ss-story-quote">"As a single mother, I needed stable income. The women's security training program changed my life. I now lead a team of 12 female security guards at a major hospital."</p>
+      <div class="ss-story-meta"><span>Batch: 2020</span><span>Current Salary: ₹35,000/month</span></div>
+    </div>
+    <!-- Business Security Solutions -->
+    <!-- Story 3 -->
+    <div class="ss-story-card" data-type="business">
+      <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Suresh Babu" class="ss-story-photo" />
+      <strong class="ss-story-name">Suresh Babu</strong>
+      <span class="ss-story-path">Farmer → Security Entrepreneur</span>
+      <p class="ss-story-quote">"After crop failures, I thought my life was over. Shiloh Sneha's advanced training helped me start my own security services company. I now employ 25 people from my village."</p>
+      <div class="ss-story-meta"><span>Batch: 2018</span><span>Business Revenue: ₹15 Lakh/year</span></div>
+    </div>
+    <div class="ss-story-card" data-type="business">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Business Client" class="ss-story-photo" />
+      <div class="ss-story-content">
+        <strong>Sunrise Apartments</strong> <span class="ss-role">(Client)</span>
+        <p>“We feel safer than ever. The guards are vigilant and courteous.”</p>
+        <div class="ss-story-video-thumb"><img src="https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg" alt="Video" /></div>
+        <a href="#" class="ss-read-more">Read More</a>
+      </div>
+    </div>
+    <!-- More Placeholder Stories -->
+    <div class="ss-story-card" data-type="career">
+      <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Graduate" class="ss-story-photo" />
+      <div class="ss-story-content">
+        <strong>Vikram Singh</strong> <span class="ss-role">(Graduate)</span>
+        <p>“The training and placement support is unmatched.”</p>
+        <div class="ss-story-video-thumb"><img src="https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg" alt="Video" /></div>
+        <a href="#" class="ss-read-more">Read More</a>
+      </div>
+    </div>
+    <div class="ss-story-card" data-type="business">
+      <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Business Client" class="ss-story-photo" />
+      <div class="ss-story-content">
+        <strong>Global Tech Corp</strong> <span class="ss-role">(Client)</span>
+        <p>“Their custom security solution improved our operations.”</p>
+        <div class="ss-story-video-thumb"><img src="https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg" alt="Video" /></div>
+        <a href="#" class="ss-read-more">Read More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <div class="contact-hero">
+    <h2>Contact Us</h2>
+    <p>Get in touch for training, security services, or general inquiries. Our team will respond promptly!</p>
+  </div>
+  <form class="contact-form" id="mainContactForm" novalidate>
+    <div class="cf-row">
+      <label for="cf-name">Name<span>*</span></label>
+      <input type="text" id="cf-name" name="name" required>
+    </div>
+    <div class="cf-row">
+      <label for="cf-phone">Phone<span>*</span></label>
+      <input type="tel" id="cf-phone" name="phone" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit number">
+    </div>
+    <div class="cf-row">
+      <label for="cf-email">Email<span>*</span></label>
+      <input type="email" id="cf-email" name="email" required>
+    </div>
+    <div class="cf-row">
+      <label for="cf-interest">Interest<span>*</span></label>
+      <select id="cf-interest" name="interest" required>
+        <option value="">Select...</option>
+        <option value="training">Security Training</option>
+        <option value="services">Security Services</option>
+        <option value="both">Both Training & Services</option>
+        <option value="general">General Inquiry</option>
+      </select>
+    </div>
+    <!-- Dynamic fields go here -->
+    <div id="cf-dynamic-fields"></div>
+    <div class="cf-row cf-checkbox-row">
+      <input type="checkbox" id="cf-callback" name="callback">
+      <label for="cf-callback">Call Me Back (Urgent)</label>
+    </div>
+    <div class="cf-row">
+      <label for="cf-contact-time">Preferred Contact Time</label>
+      <select id="cf-contact-time" name="contact_time">
+        <option value="">No preference</option>
+        <option value="morning">Morning</option>
+        <option value="afternoon">Afternoon</option>
+        <option value="evening">Evening</option>
+      </select>
+    </div>
+    <div class="cf-row cf-checkbox-row">
+      <input type="checkbox" id="cf-whatsapp" name="whatsapp">
+      <label for="cf-whatsapp">Contact me via WhatsApp</label>
+    </div>
+    <div class="cf-row">
+      <button type="submit" class="cf-submit">Send Message</button>
+    </div>
+    <div class="cf-success" id="cf-success" style="display:none;">Thank you! We'll get back to you soon.</div>
+    <div class="cf-error" id="cf-error" style="display:none;">Please check the form for errors.</div>
+  </form>
+</section>
+
+<!-- Footer Section -->
+<footer class="main-footer">
+  <div class="footer-top">
+    <div class="footer-col company">
+      <div class="footer-logo">Shiloh Sneha <span>Security Services</span></div>
+      <div class="footer-tagline">Empowering Youth. Securing Businesses.</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Andhra_Pradesh_Logo.png" alt="AP Govt" class="footer-govt-badge"/>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" /></a>
+        <a href="#" aria-label="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" /></a>
+        <a href="#" aria-label="Facebook"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" /></a>
+        <a href="#" aria-label="Twitter"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter" /></a>
+        <a href="#" aria-label="YouTube"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube" /></a>
+      </div>
+    </div>
+    <div class="footer-col quick-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#training">Training Programs</a></li>
+        <li><a href="#services">Security Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col resources">
+      <h4>Resources & Support</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#stories">Success Stories</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col contact-info">
+      <h4>Contact Info</h4>
+      <ul>
+        <li><strong>Address:</strong> 123 Sneha Towers, MG Road, Vijayawada, AP</li>
+        <li><strong>Phone:</strong> <a href="tel:+919999999999">+91 99999 99999</a></li>
+        <li><strong>Email:</strong> <a href="mailto:info@snehasecurity.com">info@snehasecurity.com</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/919999999999">Chat Now</a></li>
+        <li><strong>Hours:</strong> Mon-Sat 8:00–20:00</li>
+        <li><strong>Locations:</strong> Vijayawada, Vizag, Tirupati, Guntur</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copyright">
+      &copy; 2025 Shiloh Sneha Security Services. All rights reserved.
+    </div>
+    <div class="footer-legal">
+      <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Sitemap</a>
+    </div>
+    <div class="footer-badges">
+      <img src="https://www.iso.org/files/live/sites/isoorg/files/store/en/PUB100371/iso_9001_2015_logo.jpg" alt="ISO 9001:2015" class="footer-cert-badge" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Andhra_Pradesh_Logo.png" alt="AP Govt" class="footer-cert-badge" />
+    </div>
+  </div>
+</footer>
+
+<style>
+.main-footer {
+  background: #0f172a;
+  color: #fff;
+  padding: 0 0 0 0;
+  border-top: 4px solid #2563eb;
+  font-size: 1rem;
+}
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 44px 16px 18px 16px;
+  gap: 28px;
+}
+.footer-col {
+  flex: 1 1 180px;
+  margin-bottom: 18px;
+}
+.footer-logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.footer-logo span {
+  color: #2563eb;
+}
+.footer-tagline {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+.footer-govt-badge {
+  /* hidden per request */
+  display: none !important;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+}
+.footer-socials img {
+  width: 22px;
+  height: 22px;
+  filter: invert(1) brightness(1.5);
+  opacity: 0.8;
+  transition: filter 0.2s, opacity 0.2s;
+}
+.footer-socials img:hover {
+  filter: invert(0.8) sepia(1) hue-rotate(-20deg) saturate(5) brightness(1.2);
+  opacity: 1;
+}
+.footer-col h4 {
+  color: #2563eb;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-col ul li {
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 0.98rem;
+}
+.footer-col ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover, .footer-col ul li a:focus {
+  color: #2563eb;
+  text-decoration: underline;
+}
+.footer-bottom {
+  border-top: 1px solid #334155;
+  padding: 14px 16px 10px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 10px;
+}
+.footer-copyright {
+  font-size: 0.98rem;
+  color: #fff;
+}
+.footer-legal a {
+  color: #2563eb;
+  margin: 0 6px;
+  font-size: 0.97rem;
+  text-decoration: none;
+}
+.footer-legal a:hover, .footer-legal a:focus {
+  text-decoration: underline;
+  color: #fff;
+}
+.footer-badges {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.footer-cert-badge {
+  /* hidden per request */
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+.footer-top { flex-direction: column; gap: 18px; }
+.footer-bottom { flex-direction: column; gap: 8px; }
+}
+</style>
+
+<style>
+.contact-section {
+background: #2563eb;
+padding: 54px 0 32px 0;
+border-top: 1px solid #e5e7eb;
+}
+.contact-hero {
+  max-width: 600px;
+  margin: 0 auto 28px auto;
+  padding: 0 16px;
+  text-align: center;
+}
+.contact-hero h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.contact-hero p {
+  color: #ffffff;
+}
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 20px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.cf-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cf-row label {
+  color: var(--primary-navy);
+  font-weight: 500;
+  font-size: 1rem;
+}
+.cf-row input[type="text"],
+.cf-row input[type="email"],
+.cf-row input[type="tel"],
+.cf-row select,
+.cf-row textarea {
+  font-size: 1rem;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  background: var(--background-white);
+  color: var(--primary-navy);
+  outline: none;
+  transition: border 0.2s;
+}
+.cf-row input:focus, .cf-row select:focus, .cf-row textarea:focus {
+  border: 1.5px solid #2563eb;
+}
+#cf-dynamic-fields {
+  background: #f0fff4;
+  border: 1px solid #bbf7d0;
+  padding: 18px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cf-row span {
+  color: var(--accent-gold);
+  margin-left: 2px;
+}
+.cf-checkbox-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.cf-submit {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px 28px;
+  font-size: 1.08rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;
+}
+.cf-submit:hover, .cf-submit:focus {
+  background: #1e40af;
+}
+.cf-success {
+  color: #1a7f3f;
+  background: #e6f9ed;
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+.cf-error {
+  color: #b91c1c;
+  background: #fef2f2;
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .contact-form, .contact-hero { padding: 0 4vw; }
+}
+</style>
+<script>
+// Dynamic Contact Form Fields
+const cfInterest = document.getElementById('cf-interest');
+const cfDynamicFields = document.getElementById('cf-dynamic-fields');
+const trainingLocations = ['Hyderabad', 'Vijayawada', 'Visakhapatnam', 'Tirupati'];
+
+function renderDynamicFields(value) {
+  let html = '';
+  if (value === 'training') {
+    html += `<div class="cf-row"><label for="cf-age">Age<span>*</span></label><select id="cf-age" name="age" required><option value="">Select...</option><option>18-25</option><option>26-35</option><option>35+</option></select></div>`;
+    html += `<div class="cf-row"><label for="cf-edu">Educational Background<span>*</span></label><select id="cf-edu" name="education" required><option value="">Select...</option><option>10th Pass</option><option>12th Pass</option><option>Graduate</option><option>Post-Graduate</option><option>Other</option></select></div>`;
+    html += `<div class="cf-row"><label for="cf-status">Current Employment Status<span>*</span></label><select id="cf-status" name="status" required><option value="">Select...</option><option>Unemployed</option><option>Part-time</option><option>Looking for career change</option></select></div>`;
+    html += `<div class="cf-row"><label for="cf-location">Preferred Training Location<span>*</span></label><select id="cf-location" name="location" required><option value="">Select...</option>${trainingLocations.map(loc => `<option>${loc}</option>`).join('')}</select></div>`;
+    html += `<div class="cf-row"><label for="cf-message">Message</label><textarea id="cf-message" name="message" rows="3" placeholder="What are your career goals?"></textarea></div>`;
+  } else if (value === 'services') {
+    html += `<div class="cf-row"><label for="cf-company">Company/Organization Name<span>*</span></label><input type="text" id="cf-company" name="company" required></div>`;
+    html += `<div class="cf-row"><label for="cf-industry">Industry Type<span>*</span></label><select id="cf-industry" name="industry" required><option value="">Select...</option><option>Healthcare</option><option>IT</option><option>Manufacturing</option><option>Construction</option><option>Hospitality</option><option>Retail</option><option>Other</option></select></div>`;
+    html += `<div class="cf-row"><label for="cf-service">Service Needed<span>*</span></label><select id="cf-service" name="service_needed" required><option value="">Select...</option><option>24/7 Security</option><option>Event Security</option><option>Residential Security</option><option>Corporate Security</option><option>Other</option></select></div>`;
+    html += `<div class="cf-row"><label for="cf-team">Approximate Team Size Needed<span>*</span></label><select id="cf-team" name="team_size" required><option value="">Select...</option><option>1-5</option><option>6-15</option><option>16-50</option><option>50+</option></select></div>`;
+    html += `<div class="cf-row"><label for="cf-message">Message</label><textarea id="cf-message" name="message" rows="3" placeholder="Describe your security requirements"></textarea></div>`;
+  } else if (value === 'both') {
+    html += `<div class="cf-row"><label>Are you:<span>*</span></label><div class="cf-radio-group"><label><input type="radio" name="both_type" value="individual" required> Individual seeking training + wanting to start security business</label><label><input type="radio" name="both_type" value="business"> Business owner interested in training employees + hiring services</label><label><input type="radio" name="both_type" value="organization"> Organization wanting to train staff + outsource additional security</label></div></div>`;
+    html += `<div class="cf-row"><label>For Training:</label><div class="cf-checkbox-group"><label><input type="checkbox" name="training_opts" value="Personal skill development"> Personal skill development</label><label><input type="checkbox" name="training_opts" value="Employee training programs"> Employee training programs</label><label><input type="checkbox" name="training_opts" value="Bulk training for multiple candidates"> Bulk training for multiple candidates</label></div></div>`;
+    html += `<div class="cf-row"><label>For Services:</label><div class="cf-checkbox-group"><label><input type="checkbox" name="service_opts" value="Immediate security personnel needed"> Immediate security personnel needed</label><label><input type="checkbox" name="service_opts" value="Future security services planning"> Future security services planning</label><label><input type="checkbox" name="service_opts" value="Consultation for security solutions"> Consultation for security solutions</label></div></div>`;
+    html += `<div class="cf-row"><label for="cf-background">Industry/Background</label><input type="text" id="cf-background" name="background"></div>`;
+    html += `<div class="cf-row"><label for="cf-both-team">Team/Group Size</label><select id="cf-both-team" name="both_team"><option value="">Select...</option><option>Individual</option><option>2-10</option><option>11-50</option><option>50+</option></select></div>`;
+    html += `<div class="cf-row"><label for="cf-message">Message</label><textarea id="cf-message" name="message" rows="3" placeholder="Tell us about both your training and service needs"></textarea></div>`;
+  } else if (value === 'general') {
+    html += `<div class="cf-row"><label for="cf-hear">How did you hear about us?</label><select id="cf-hear" name="hear"><option value="">Select...</option><option>Social media</option><option>Website</option><option>Referral</option><option>Government program</option><option>Advertisement</option><option>Other</option></select></div>`;
+    html += `<div class="cf-row"><label>What would you like to know more about?</label><div class="cf-checkbox-group"><label><input type="checkbox" name="know_more" value="Training programs details"> Training programs details</label><label><input type="checkbox" name="know_more" value="Security services offered"> Security services offered</label><label><input type="checkbox" name="know_more" value="Pricing information"> Pricing information</label><label><input type="checkbox" name="know_more" value="Partnership opportunities"> Partnership opportunities</label><label><input type="checkbox" name="know_more" value="Government schemes"> Government schemes</label><label><input type="checkbox" name="know_more" value="Career opportunities"> Career opportunities</label><label><input type="checkbox" name="know_more" value="Other"> Other</label></div></div>`;
+  }
+  cfDynamicFields.innerHTML = html;
+}
+
+cfInterest.addEventListener('change', function() {
+  renderDynamicFields(this.value);
+});
+
+// Smart Validation
+const cfForm = document.getElementById('mainContactForm');
+cfForm.addEventListener('submit', function(e) {
+  let valid = true;
+  const phone = document.getElementById('cf-phone');
+  const email = document.getElementById('cf-email');
+  const name = document.getElementById('cf-name');
+  const interest = document.getElementById('cf-interest');
+  const errorDiv = document.getElementById('cf-error');
+  const successDiv = document.getElementById('cf-success');
+  errorDiv.style.display = 'none';
+  successDiv.style.display = 'none';
+  // Basic checks
+  if (!name.value.trim()) valid = false;
+  if (!/^[0-9]{10}$/.test(phone.value.trim())) valid = false;
+  if (!/^\S+@\S+\.\S+$/.test(email.value.trim())) valid = false;
+  if (!interest.value) valid = false;
+  // Dynamic required fields
+  const dynamicRequired = cfDynamicFields.querySelectorAll('select[required], input[required], textarea[required]');
+  dynamicRequired.forEach(field => {
+    if (field.type === 'radio') {
+      const radios = cfDynamicFields.querySelectorAll(`input[name="${field.name}"]`);
+      if (![...radios].some(r => r.checked)) valid = false;
+    } else if (!field.value) {
+      valid = false;
+    }
+  });
+  if (!valid) {
+    errorDiv.style.display = 'block';
+    e.preventDefault();
+    return false;
+  }
+  successDiv.style.display = 'block';
+  e.preventDefault();
+  cfForm.reset();
+  cfDynamicFields.innerHTML = '';
+  return false;
+});
+</script>
+
+<style>
+.success-stories {
+  background: var(--background-white);
+  padding: 54px 0 32px 0;
+  border-top: 1px solid #e5e7eb;
+}
+.ss-stories-hero {
+  max-width: 1200px;
+  margin: 0 auto 28px auto;
+  padding: 0 16px;
+  text-align: center;
+}
+.ss-stories-title {
+  font-size: 2rem;
+  color: var(--primary-navy);
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.ss-stories-filters {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 26px;
+}
+.ss-filter-btn {
+  background: #f9fafb;
+  color: var(--primary-navy);
+  border: 1px solid #2563eb33;
+  border-radius: var(--radius);
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.ss-filter-btn.active, .ss-filter-btn:hover, .ss-filter-btn:focus {
+  background: #2563eb;
+  color: #fff;
+}
+.ss-stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(340px,1fr));
+  gap: 24px;
+  justify-items: center;
+  align-items: center;
+}
+.ss-story-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 28px 26px 24px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  transition: box-shadow .2s, transform .2s;
+}
+.ss-story-card:hover{
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+.ss-story-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 12px auto;
+}
+.ss-story-name{
+  font-size:1rem;
+  font-weight:700;
+  color:var(--primary-navy);
+  text-align:center;
+}
+.ss-story-path{
+  font-size:0.88rem;
+  color:#2563eb;
+  font-weight:600;
+  text-align:center;
+  display:block;
+}
+/* remove old elements */
+.ss-story-video-thumb,.ss-read-more{display:none !important;}
+.ss-role {
+  color: var(--primary-navy);
+  font-size: 0.95rem;
+  margin-left: 4px;
+}
+.ss-story-quote{
+  color: var(--primary-navy);
+  font-size:0.9rem;
+  font-style:italic;
+  margin: 8px 0 0;
+  text-align: center;
+}
+.ss-story-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:0.8rem;
+  color:var(--text-gray);
+  margin-top:18px;
+  padding-top:12px;
+  border-top:1px solid #e5e7eb;
+}
+.ss-story-video-thumb {
+  margin: 10px 0 8px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.ss-story-video-thumb img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.ss-read-more {
+  color: var(--accent-gold);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 8px;
+  display: inline-block;
+}
+.ss-read-more:hover, .ss-read-more:focus {
+  text-decoration: underline;
+  color: var(--primary-navy);
+}
+@media (max-width: 900px) {
+  .ss-stories-grid { gap: 16px; }
+  .ss-story-card { min-width: 220px; max-width: 100%; }
+}
+</style>
+<script>
+// Success Stories Filtering
+const ssFilterBtns = document.querySelectorAll('.ss-filter-btn');
+const ssStoryCards = document.querySelectorAll('.ss-story-card');
+ssFilterBtns.forEach(btn => {
+  btn.addEventListener('click', function() {
+    ssFilterBtns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.getAttribute('data-filter');
+    ssStoryCards.forEach(card => {
+      if (filter === 'all' || card.getAttribute('data-type') === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+
+<style>
+/* About Us Section Styles */
+.about-us {
+  background: var(--background-white);
+  padding: 54px 0 32px 0;
+  border-top: 1px solid #e5e7eb;
+}
+.about-hero {
+  max-width: 1200px;
+  margin: 0 auto 28px auto;
+  padding: 0 16px;
+  text-align: center;
+}
+.about-title{font-size:2rem;color:var(--primary-navy);margin-bottom:6px;font-weight:700;}
+.about-sub{font-size:1rem;color:var(--text-gray);margin-bottom:40px;}
+/* old headline class removed */
+.about-headline {
+  font-size: 2rem;
+  color: var(--primary-navy);
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.about-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.about-highlight-card {background:#ffffff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:26px 24px;min-width:200px;width:240px;display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .3s;}
+.about-icon {background:#2563eb;color:#fff;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:12px;}
+.about-mission {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  margin-bottom: 18px;
+}
+.about-cta {background:#2563eb;color:#fff;font-weight:600;border:none;border-radius:var(--radius);padding:12px 28px;font-size:1.05rem;cursor:pointer;transition:background 0.2s;display:inline-flex;align-items:center;gap:6px;}
+
+.about-cta:hover, .about-cta:focus {background:#1e40af;}
+.about-mission-card{background:#ffffff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:40px 60px;max-width:900px;margin:0 auto 40px auto;text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center;}
+.about-mission-card h3{margin:0;font-size:1.3rem;color:var(--primary-navy);font-weight:600;}
+.about-mission-card p{margin:0;font-size:0.95rem;color:var(--text-gray);max-width:700px;}
+
+/* ===== Detailed About Styles ===== */
+.journey-grid{background:#ffffff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:32px;grid-template-columns:repeat(2,1fr);gap:32px;}
+.journey-card{background:transparent;border:none;box-shadow:none;padding:0;text-align:left;}
+.journey-card img{width:100%;height:200px;object-fit:cover;border-radius:var(--radius);margin-bottom:12px;}
+.journey-card h4{margin:12px 0 6px;font-size:1.05rem;color:var(--primary-navy);}
+.about-section-title{font-size:1.35rem;font-weight:600;color:var(--primary-navy);margin:40px 0 22px;text-align:center;}
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+.about-grid.leaders-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));justify-content:center;gap:48px;margin-top:80px;}
+.about-grid.journey-grid{grid-template-columns:repeat(2,1fr);}
+.about-detail{max-width:1000px;margin:0 auto;padding:0 16px;}
+.about-card,.journey-card,.leader-card,.metric-card,.value-card{background:#fff;border:1px solid #e5e7eb;border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;text-align:center;}
+.journey-card img,.leader-card img{width:100%;height:160px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;margin-bottom:12px;}
+.leader-card{position:relative;padding-top:60px;width:100%;max-width:260px;margin:0 auto;display:flex;flex-direction:column;align-items:center;}
+.leader-card img{position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:100px;height:100px;border-radius:50%;object-fit:cover;margin:0;box-shadow:0 2px 6px rgba(0,0,0,0.15);}
+.leader-card strong{display:block;margin-bottom:4px;color:var(--primary-navy);} 
+.leader-card span{color:var(--text-gray);font-size:0.9rem;}
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  justify-items: center;
+  align-items: stretch;
+}
+.cert-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px 26px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.cert-card strong {
+  font-weight: 600;
+  color: var(--primary-navy);
+  margin: 8px 0 4px;
+}
+.cert-card span {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+.cert-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.cert-icon.iso{background:#fee2e2;color:#dc2626;}
+.cert-icon.psara{background:#dbeafe;color:#2563eb;}
+.cert-icon.nsdc{background:#d1fae5;color:#059669;}
+.cert-icon.ap{background:#ede9fe;color:#7c3aed;}
+
+/* ===== Strategic Partnerships Styles ===== */
+.partner-panel{
+  background:#f8fbff; /* slightly tinted backdrop */
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:32px 48px;
+  max-width:1100px;
+  margin:0 auto 56px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:60px 80px; /* larger gap between columns */
+}
+.partner-column{display:flex;flex-direction:column;gap:24px;}
+.partner-column h4{
+  font-size:1.1rem;
+  font-weight:700;
+  margin:0 0 12px;
+  color:var(--primary-navy);
+}
+.partner-card{
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  transition:box-shadow .2s, transform .2s;
+}
+.partner-card:hover{
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  transform:translateY(-2px);
+}
+.partner-card strong{display:block;font-weight:600;color:var(--primary-navy);}
+.partner-card span{font-size:0.85rem;color:var(--text-gray);}
+.partner-icon{
+  min-width:48px;
+  height:48px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.2rem;
+  font-weight:600;
+}
+.partner-icon.blue{background:#e8edff;color:#2563eb;}
+.partner-icon.green{background:#def7ec;color:#059669;}
+.partner-icon.purple{background:#ede9fe;color:#7c3aed;}
+.partner-icon.orange{background:#fff6e5;color:#d97706;}
+@media(max-width:700px){
+  .partner-panel{padding:24px 20px;gap:40px;}
+}
+.cert-badge{background:#eef2ff;color:#2563eb;border-radius:50%;width:80px;height:80px;display:flex;align-items:center;justify-content:center;font-weight:600;}
+.metric-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:28px 20px;}
+.metric-card strong{font-size:1.6rem;color:var(--primary-navy);} 
+.metric-card span{color:var(--text-gray);font-weight:500;font-size:0.9rem;}
+/* Interactive hover effect for metric cards */
+.metric-card:hover{
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+  transform:translateY(-4px);
+}
+/* Responsive grid container for Success metrics */
+.metrics-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:24px 32px;
+  max-width:900px;
+  margin:0 auto 56px;
+}
+@media (max-width:800px){.journey-grid{grid-template-columns:1fr;}}
+/* override journey card border */
+.journey-card{border:none !important;box-shadow:none !important;}
+.values-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+  gap:32px 40px;
+  max-width:1100px;
+  margin:0 auto 56px;
+}
+.value-card{
+  background:#f9fafb;
+  border-left:4px solid #2563eb;
+  border-radius:var(--radius);
+  padding:26px 30px;
+  text-align:left;
+  box-shadow:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  color:var(--primary-navy);
+}
+.value-card strong{
+  font-size:1rem;
+  font-weight:600;
+  color:var(--primary-navy);
+}
+.value-card p{
+  font-size:0.9rem;
+  color:var(--text-gray);
+  margin:0;
+}
+.value-card.blue{border-color:#2563eb;background:#eff6ff;}
+.value-card.green{border-color:#059669;background:#ecfdf5;}
+.value-card.purple{border-color:#7c3aed;background:#f5f3ff;}
+.value-card.orange{border-color:#d97706;background:#fff7ed;}
+.about-collapse-card{display:none;}
+
+.about-collapsible-section {display:none;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.about-collapse-card {
+  background: #f9fafb;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.about-collapse-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--primary-navy);
+  font-size: 1.1rem;
+  padding: 18px 20px;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.2s;
+}
+.about-collapse-toggle:hover, .about-collapse-toggle:focus {
+  background: #2563eb15;
+}
+.about-collapse-content {
+  display: none;
+  padding: 0 20px 16px 20px;
+  color: var(--text-gray);
+  font-size: 1rem;
+  animation: fadeIn 0.3s;
+}
+.about-collapse-card.open .about-collapse-content {
+  display: block;
+}
+.about-collapse-card .toggle-icon {
+  margin-left: 8px;
+  transition: transform 0.2s;
+}
+.about-collapse-card.open .toggle-icon {
+  transform: rotate(180deg);
+}
+.about-leader strong {
+  color: var(--accent-gold);
+  font-size: 1.05rem;
+}
+.about-leader span {
+  color: var(--text-gray);
+  font-size: 0.98rem;
+}
+@media (max-width: 900px) {
+  .about-highlights { flex-direction: column; align-items: center; }
+}
+</style>
+<script>
+// Toggle full story visibility
+const aboutCtaBtn = document.querySelector('.about-cta');
+const aboutFullSection = document.getElementById('about-detail');
+aboutCtaBtn.addEventListener('click', e => {
+  e.preventDefault();
+  const open = aboutFullSection.style.display === 'block';
+  aboutFullSection.style.display = open ? 'none' : 'block';
+  aboutCtaBtn.innerHTML = open ? 'Learn Our Complete Story <span class="cta-icon">&#9660;</span>' : 'Show Less <span class="cta-icon">&#9650;</span>';
+  if(!open){ aboutFullSection.scrollIntoView({behavior:'smooth'}); }
+});
+
+// Collapsible sections for About Us
+const aboutToggles = document.querySelectorAll('.about-collapse-toggle');
+aboutToggles.forEach(toggle => {
+  toggle.addEventListener('click', function() {
+    const card = this.closest('.about-collapse-card');
+    card.classList.toggle('open');
+    // Close others
+    aboutToggles.forEach(other => {
+      if (other !== this) other.closest('.about-collapse-card').classList.remove('open');
+    });
+  });
+});
+</script>
+
+<style>
+.hero {
+  position: relative;
+  background: linear-gradient(to right, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+  padding: 80px 0 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.hero-text {
+  flex: 1 1 340px;
+  min-width: 280px;
+}
+.hero-text h1 {
+  font-size: 3.2rem;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  line-height: 1.15;
+}
+.hero-text h1 span {
+  color: #9ac1ff;
+}
+.hero-sub {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  margin-bottom: 0;
+}
+.hero-sub .plus { color: #9ac1ff; font-weight: bold; }
+.hero-images {
+  flex: 1 1 360px;
+  display: flex;
+  gap: 26px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  backdrop-filter: blur(3px);
+}
+.hero-card img {
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .hero-content { flex-direction: column; gap: 18px; }
+  .hero-images { justify-content: flex-start; }
+}
+
+.trust-indicators {
+  background: #f1f6ff;
+  padding: 40px 0 32px 0;
+
+}
+.trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.trust-card {
+  background: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 30px;
+  min-width: 200px;
+  max-width: 260px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.trust-card h3 {
+  font-size: 1.6rem;
+  color: #1d4ed8;
+  font-weight: 700;
+  margin: 0;
+}
+.trust-card h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0;
+}
+.trust-card p {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+
+.what-we-do {
+  background: #ffffff;
+  padding: 54px 0 40px 0;
+}
+.wwd-hero {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 36px auto;
+  padding: 0 16px;
+}
+.wwd-hero h2 {
+  font-size: 2rem;
+  color: var(--primary-navy);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.wwd-hero p {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  margin: 0;
+}
+.wwd-cards {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.wwd-card {
+  background: #f9fafb;
+  border-left: 4px solid #2563eb;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px 32px;
+  flex: 1 1 360px;
+  min-width: 260px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.wwd-card.youth { border-left-color: #22c55e; }
+.wwd-card.business { border-left-color: #2563eb; }
+.wwd-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.wwd-icon {
+  background: #eef2ff;
+  color: #2563eb;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wwd-card.youth .wwd-icon { background:#ecfdf5; color:#22c55e; }
+.wwd-header h3 { margin: 0; font-size: 1.2rem; color: var(--primary-navy); }
+.wwd-desc { font-size: 0.98rem; color: var(--text-gray); margin: 0 0 12px 0; }
+.wwd-toggle {
+  color: var(--primary-navy);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 4px;
+}
+.wwd-toggle:hover, .wwd-toggle:focus { text-decoration: underline; }
+.wwd-more { list-style: none; padding: 0; margin: 14px 0 0 0; display: none; }
+.wwd-card.open .wwd-more { display: block; }
+.wwd-more li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 0.96rem;
+  color: var(--text-gray);
+}
+.wwd-more li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: #2563eb;
+}
+.wwd-card.youth .wwd-more li::before { color:#22c55e; }
+@media (max-width: 900px) {
+  .wwd-cards { gap: 20px; }
+}
+
+/* ---------------- Sneha Model ---------------- */
+.sneha-model {
+  background: #ffffff;
+  padding: 64px 0 70px 0;
+
+  text-align: center;
+}
+.sneha-model .model-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--primary-navy);
+}
+.model-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-gray);
+  margin: 0 0 40px 0;
+}
+.model-steps {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.model-item {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.model-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.model-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-navy);
+}
+.model-desc {
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  margin: 0;
+}
+@media (max-width: 800px) {
+  .model-steps { gap: 28px; }
+  .model-item { width: 140px; }
+}
+
+/* ---------------- Transition Bridge ---------------- */
+.transition-bridge {
+  background: linear-gradient(135deg,#eff6ff 0%, #e7fdf5 100%);
+  padding: 110px 0; /* more height to center card */
+}
+.bridge-card {
+  background: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 60px 40px 50px 40px;
+  position: relative;
+  text-align: center;
+}
+.bridge-icon {
+  width: 72px;
+  height: 72px;
+  background: #059669;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.bridge-icon svg {
+  width: 32px;
+  height: 32px;
+}
+.bridge-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin: 30px 0 16px 0;
+}
+.bridge-lead {
+  font-size: 1.05rem;
+  color: var(--text-gray);
+  margin: 0 0 32px 0;
+}
+.bridge-stats {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.bridge-stat {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary-navy);
+}
+.stat-icon { font-size: 1rem; }
+@media (max-width: 600px) {
+  .bridge-card { padding: 46px 28px 40px; }
+  .bridge-stats { gap: 18px; }
+}
+
+/* ---------------- Security Services ---------------- */
+.security-services{padding:100px 0;background:#ffffff;text-align:center;}
+.ss-wrap{max-width:1100px;margin:0 auto;}
+.ss-heading{font-size:2rem;margin:0 0 10px;}
+.ss-sub{font-size:1rem;color:var(--text-gray);max-width:700px;margin:0 auto 26px;}
+.ss-emergency{font-weight:600;color:var(--primary-navy);margin-bottom:60px;}
+.phone-icon{margin-right:6px;color:#2563eb;}
+
+/* cards */
+.ss-cards{display:flex;gap:24px;justify-content:center;flex-wrap:nowrap;margin-bottom:60px;}
+@media(max-width:900px){.ss-cards{flex-wrap:wrap;}}
+
+.ss-card{background:#fff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:30px 26px 22px;width:320px;display:flex;flex-direction:column;gap:14px;text-align:left;transition:transform .3s cubic-bezier(.4,0,.2,1);}
+.ss-card-head{display:flex;align-items:center;gap:10px;}
+.ss-card-icon{font-size:26px;color:#2563eb;}
+.ss-card h4{font-size:1rem;margin:0;color:var(--primary-navy);}
+.ss-card-desc{font-size:0.9rem;color:var(--text-gray);margin:0;}
+.ss-toggle{font-size:0.9rem;color:#2563eb;font-weight:600;text-decoration:none;margin-top:6px;display:inline-block;}
+.ss-toggle .toggle-icon{margin-left:4px;font-size:0.8rem;}
+.ss-more{list-style:none;padding:0;margin:12px 0 0;display:none;flex-direction:column;gap:6px;}
+.ss-card.open .ss-more{display:flex;}
+.ss-more li::before{content:'•';color:#2563eb;font-weight:bold;margin-right:6px;}
+
+/* process */
+.ss-process-title{font-size:1.3rem;font-weight:600;margin:0 0 6px;color:var(--primary-navy);}
+.ss-process-sub{font-size:0.95rem;color:var(--text-gray);margin:0 0 40px;}
+.ss-steps{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-bottom:60px;}
+.ss-step{width:260px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
+.ss-step-badge{background:#2563eb;color:#fff;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:1.2rem;margin-bottom:14px;}
+.ss-step h4{margin:0;font-size:1rem;color:var(--primary-navy);}
+.ss-step-link{color:#2563eb;font-weight:600;text-decoration:none;font-size:0.9rem;}
+.ss-step-link:hover{text-decoration:underline;}
+.ss-step p{margin:0;font-size:0.85rem;color:var(--text-gray);}
+
+/* lists */
+.ss-bottom{display:flex;gap:60px;justify-content:center;flex-wrap:wrap;}
+.ss-column h4{font-size:1.1rem;font-weight:600;margin:0 0 16px;color:var(--primary-navy);}
+.ss-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.ss-list li{font-size:0.9rem;color:var(--primary-navy);display:flex;gap:8px;align-items:flex-start;}
+.ss-list li::before{content:'✔';color:#2563eb;margin-top:2px;}
+.ss-card:hover{transform:scale(1.02);} 
+@media(max-width:700px){.ss-card{width:100%;}.ss-bottom{gap:30px;}}
+
+/* ---------------- Training Programs ---------------- */
+.training-programs {
+  background: #f0fff4;
+  padding: 100px 0;
+}
+.tp-wrap { max-width: 1100px; margin: 0 auto; text-align: center; }
+.tp-heading { font-size: 2rem; margin: 0 0 10px; }
+.tp-sub { font-size: 1rem; color: var(--text-gray); max-width: 680px; margin: 0 auto 50px; }
+
+/* highlight cards */
+.tp-highlights { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+.tp-hcard { background:#fff; border:1px solid #e5e7eb; border-radius: var(--radius); width:240px; padding:32px 20px 26px; box-shadow:0 4px 14px rgba(0,0,0,0.05); display:flex; flex-direction:column; align-items:center; gap:10px; transition:transform .3s; }
+.tp-hcard:hover { transform: translateY(-4px); }
+.tp-hicon { font-size:28px; color:#059669; }
+.tp-hcard h4 { font-size:1rem; margin:0; color:var(--primary-navy); }
+.tp-hcard p { font-size:0.85rem; color:var(--text-gray); margin:0; }
+
+/* cards */
+.tp-card { background:#fff; border:1px solid #e5e7eb; border-radius: var(--radius); box-shadow:0 4px 14px rgba(0,0,0,0.05); padding:34px 40px; text-align:left; margin-bottom:40px; }
+.tp-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px 20px;}
+.tp-list li{display:flex;gap:8px;align-items:flex-start;}
+.tp-list li::before{content:'✔';color:#059669;font-weight:600;margin-top:2px;}
+
+.tp-eligibility ul { display:grid; grid-template-columns:1fr 1fr; gap:10px 40px; list-style:none; padding:0; margin:20px 0 0; }
+.tp-eligibility li::before { content:"✔"; color:#059669; margin-right:6px; }
+
+/* accordion */
+.tp-accordion { display:flex; flex-direction:column; gap:12px; margin-bottom:60px; }
+.tp-acc-toggle { width:100%; background:#f0fff4; border:1px solid #e5e7eb; border-radius:var(--radius); padding:18px 20px; font-size:0.95rem; color:var(--primary-navy); text-align:left; display:flex; justify-content:space-between; align-items:center; cursor:pointer; transition:background .3s; }
+.tp-acc-toggle.open { background:#e8fbe9; }
+.tp-acc-content { display:none; background:#ffffff; border:1px solid #e5e7eb; border-radius:0 0 var(--radius) var(--radius); padding:20px; font-size:0.9rem; color:var(--text-gray); }
+
+/* CTA */
+.tp-cta-card { text-align:center; }
+.tp-steps { display:flex; gap:34px; justify-content:center; flex-wrap:wrap; margin:30px 0 40px; }
+.tp-step { width:180px; display:flex; flex-direction:column; gap:6px; align-items:center; }
+.tp-step-badge { background:#059669; color:#fff; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:600; margin-bottom:6px; }
+.tp-apply { background:#059669; color:#fff; border:none; padding:14px 34px; border-radius:6px; font-size:0.95rem; cursor:pointer; transition:background .3s; }
+.tp-apply:hover { background:#047857; }
+@media(max-width:700px){ .tp-hcard{width:100%;} .tp-eligibility ul{grid-template-columns:1fr;} .tp-step{width:100%;} .tp-list{grid-template-columns:1fr;} .tp-inf-row{flex-direction:column;} }
+
+/* infrastructure inner cards */
+.tp-inf-row{display:flex;gap:24px;flex-wrap:wrap;}
+.inf-col{flex:1;min-width:260px;background:#ffffff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:24px 26px;}
+.inf-col h4{margin:0 0 12px;font-size:1rem;color:var(--primary-navy);}
+.inf-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+.inf-col li::before{content:'•';color:#059669;font-weight:bold;margin-right:6px;}
+.tp-list li::before{content:'✔';color:#059669;margin-right:6px;}
+
+/* ---------------- Social Proof ---------------- */
+.social-proof {
+  padding: 90px 0 100px 0;
+  background: #ffffff;
+  text-align: center;
+}
+.proof-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--primary-navy);
+}
+.proof-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-gray);
+  margin: 0 0 56px 0;
+}
+.testimonial-row {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto 80px;
+}
+.story-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  padding: 28px 26px 22px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+.story-card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.story-name { display:block; font-size: 1rem; color: var(--accent-gold); font-weight: 600; }
+.story-role { display:block; font-size: 0.8rem; color: var(--text-gray); margin-bottom:4px; }
+.story-quote { font-size: 0.9rem; color: var(--primary-navy); margin: 0; font-style: italic; }
+.story-stars { color: #fbbf24; font-size: 1rem; }
+
+.org-title { font-size: 1.3rem; font-weight: 700; margin: 0 0 32px 0; color: var(--primary-navy); }
+.org-logos {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.org-logos img {
+  filter: grayscale(100%);
+  width: 120px;
+  height: 50px;
+  object-fit: contain;
+  background: #f9fafb;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  box-shadow: var(--shadow);
+}
+@media (max-width: 700px) {
+  .story-card { width: 100%; }
+  .testimonial-row { gap: 20px; }
+}
+
+.wwd-col li {
+  font-size: 1.08rem;
+  margin-bottom: 10px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+.wwd-col .arrow {
+  color: var(--accent-gold);
+  font-weight: bold;
+  margin: 0 4px;
+}
+.wwd-col.youth h2 { color: var(--accent-gold); }
+.wwd-col.business h2 { color: var(--primary-navy); }
+
+.sneha-model {
+  background: #2563eb10;
+  padding: 38px 0 24px 0;
+}
+.model-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.model-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.model-step {
+  background: var(--background-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 16px 10px 16px;
+  text-align: center;
+  min-width: 110px;
+  font-size: 1rem;
+  color: var(--primary-navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.model-icon {
+  background: var(--accent-gold);
+  color: #fff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.model-arrow {
+  font-size: 1.4rem;
+  color: var(--accent-gold);
+  font-weight: bold;
+}
+
+.transition-bridge {
+  background: linear-gradient(90deg, #f9fafb 80%, #2563eb10 100%);
+  padding: 22px 0;
+  text-align: center;
+}
+.bridge-text {
+  color: var(--primary-navy);
+  font-size: 1.15rem;
+}
+.bridge-text .highlight {
+  color: var(--accent-gold);
+  font-weight: bold;
+}
+
+.social-proof {
+  background: var(--background-white);
+  padding: 36px 0 24px 0;
+  text-align: center;
+}
+.social-proof h2 {
+  font-size: 1.3rem;
+  color: var(--primary-navy);
+  margin-bottom: 22px;
+}
+.stories-row {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.story-card {
+  background: #f9fafb;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 16px;
+  min-width: 220px;
+  max-width: 280px;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.story-card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 4px;
+}
+.story-content strong {
+  color: var(--accent-gold);
+  font-size: 1.05rem;
+}
+.story-content p {
+  color: var(--text-gray);
+  margin: 6px 0 0 0;
+  font-size: 0.98rem;
+}
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.partner-logos img {
+  height: 34px;
+  width: auto;
+  filter: grayscale(1) contrast(1.2);
+  opacity: 0.8;
+  transition: filter 0.2s, opacity 0.2s;
+}
+.partner-logos img:hover {
+  filter: grayscale(0) contrast(1.1);
+  opacity: 1;
+}
+@media (max-width: 900px) {
+  .trust-row, .stories-row, .partner-logos, .wwd-container, .model-flow {
+    gap: 16px;
+  }
+  .wwd-container { flex-direction: column; align-items: center; }
+  .hero-content { flex-direction: column; gap: 18px; }
+}
+
+/* Keep trust indicators in one row on larger screens */
+@media (min-width: 960px) {
+  .trust-row { flex-wrap: nowrap; }
+  .trust-card { flex: 1 1 0; }
+}
+@media (max-width: 600px) {
+  .trust-row, .stories-row, .partner-logos, .wwd-container, .model-flow {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-img { width: 100%; height: 120px; }
+}
+</style>
+
+  <script>
+    // Hamburger menu toggle + enhanced mobile drawer behaviour
+    const toggle = document.querySelector('.navbar-toggle');
+    const menu   = document.getElementById('navbar-menu');
+
+    if (toggle && menu) {
+      // helper to close drawer
+      const closeMenu = () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      };
+
+      // toggle drawer on hamburger press
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      // close drawer when a nav link is tapped
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          // highlight active
+          menu.querySelectorAll('a').forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          closeMenu();
+        });
+      });
+
+      // accessibility: toggle via Enter/Space on hamburger
+      toggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') toggle.click();
+      });
+
+      // allow Esc key to dismiss drawer
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
